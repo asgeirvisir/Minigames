@@ -1,0 +1,227 @@
+{
+  "levels": [
+    {
+      "id": 1,
+      "world": 1,
+      "title": "First Steps",
+      "cols": 5,
+      "rows": 3,
+      "start": { "x": 0, "y": 1, "dir": "E" },
+      "goal": { "x": 4, "y": 1 },
+      "gems": [],
+      "hazards": [],
+      "budget": { "N": 0, "E": 2, "S": 0, "W": 0 },
+      "par": 0,
+      "hint": "Just press RUN."
+    },
+    {
+      "id": 2,
+      "world": 1,
+      "title": "Right Turn",
+      "cols": 5,
+      "rows": 5,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 4, "y": 4 },
+      "gems": [],
+      "hazards": [],
+      "budget": { "N": 0, "E": 2, "S": 2, "W": 0 },
+      "par": 1
+    },
+    {
+      "id": 3,
+      "world": 1,
+      "title": "Sparkle",
+      "cols": 5,
+      "rows": 5,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 0, "y": 4 },
+      "gems": [{ "x": 4, "y": 0 }],
+      "hazards": [],
+      "budget": { "N": 0, "E": 1, "S": 2, "W": 2 },
+      "par": 2
+    },
+    {
+      "id": 4,
+      "world": 1,
+      "title": "Zig & Zag",
+      "cols": 6,
+      "rows": 6,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 5, "y": 5 },
+      "gems": [{ "x": 5, "y": 0 }, { "x": 0, "y": 5 }],
+      "hazards": [],
+      "budget": { "N": 1, "E": 3, "S": 3, "W": 3 },
+      "par": 4
+    },
+    {
+      "id": 5,
+      "world": 1,
+      "title": "Spiral Shop",
+      "cols": 6,
+      "rows": 6,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 3, "y": 3 },
+      "gems": [{ "x": 5, "y": 5 }, { "x": 0, "y": 5 }, { "x": 5, "y": 0 }],
+      "hazards": [],
+      "budget": { "N": 3, "E": 3, "S": 3, "W": 3 },
+      "par": 5
+    },
+    {
+      "id": 6,
+      "world": 2,
+      "title": "Asteroid Drift",
+      "cols": 6,
+      "rows": 5,
+      "start": { "x": 0, "y": 2, "dir": "E" },
+      "goal": { "x": 5, "y": 2 },
+      "gems": [],
+      "hazards": [
+        { "type": "asteroid", "x": 3, "y": 2 }
+      ],
+      "budget": { "N": 2, "E": 2, "S": 2, "W": 0 },
+      "par": 4
+    },
+    {
+      "id": 7,
+      "world": 2,
+      "title": "Warp Gate",
+      "cols": 6,
+      "rows": 5,
+      "start": { "x": 0, "y": 2, "dir": "E" },
+      "goal": { "x": 5, "y": 2 },
+      "gems": [{ "x": 5, "y": 0 }],
+      "hazards": [
+        { "type": "asteroid", "x": 3, "y": 2 },
+        { "type": "warp", "id": "A", "x": 2, "y": 0, "pairX": 4, "pairY": 0 }
+      ],
+      "budget": { "N": 2, "E": 2, "S": 2, "W": 0 },
+      "par": 3
+    },
+    {
+      "id": 8,
+      "world": 2,
+      "title": "Moving Rock",
+      "cols": 6,
+      "rows": 5,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 5, "y": 4 },
+      "gems": [],
+      "hazards": [
+        { "type": "asteroid", "x": 2, "y": 2, "patrol": [{"x":2,"y":2},{"x":4,"y":2}] }
+      ],
+      "budget": { "N": 1, "E": 2, "S": 3, "W": 1 },
+      "par": 2
+    },
+    {
+      "id": 9,
+      "world": 2,
+      "title": "Sling-Shot",
+      "cols": 7,
+      "rows": 5,
+      "start": { "x": 0, "y": 2, "dir": "E" },
+      "goal": { "x": 6, "y": 2 },
+      "gems": [{ "x": 3, "y": 4 }],
+      "hazards": [
+        { "type": "asteroid", "x": 3, "y": 2 },
+        { "type": "warp", "id": "A", "x": 2, "y": 2, "pairX": 4, "pairY": 2 }
+      ],
+      "budget": { "N": 2, "E": 3, "S": 2, "W": 0 },
+      "par": 3
+    },
+    {
+      "id": 10,
+      "world": 2,
+      "title": "Nebula Boss",
+      "cols": 7,
+      "rows": 6,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 6, "y": 5 },
+      "gems": [{ "x": 3, "y": 0 }, { "x": 6, "y": 3 }, { "x": 0, "y": 5 }],
+      "hazards": [
+        { "type": "asteroid", "x": 3, "y": 3, "patrol": [{"x":3,"y":3},{"x":3,"y":2}] },
+        { "type": "warp", "id": "A", "x": 5, "y": 0, "pairX": 0, "pairY": 3 }
+      ],
+      "budget": { "N": 3, "E": 3, "S": 3, "W": 3 },
+      "par": 6
+    },
+    {
+      "id": 11,
+      "world": 3,
+      "title": "Trade Wind",
+      "cols": 6,
+      "rows": 5,
+      "start": { "x": 0, "y": 2, "dir": "E" },
+      "goal": { "x": 5, "y": 2 },
+      "gems": [{ "x": 3, "y": 0 }],
+      "hazards": [
+        { "type": "wind", "x": 3, "y": 1, "dir": "S" }
+      ],
+      "budget": { "N": 2, "E": 2, "S": 1, "W": 1 },
+      "par": 3
+    },
+    {
+      "id": 12,
+      "world": 3,
+      "title": "Cannon Cove",
+      "cols": 6,
+      "rows": 5,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 5, "y": 4 },
+      "gems": [{ "x": 5, "y": 0 }],
+      "hazards": [
+        { "type": "cannon", "x": 0, "y": 2, "dir": "E", "period": 3, "phase": 0 }
+      ],
+      "budget": { "N": 1, "E": 3, "S": 3, "W": 0 },
+      "par": 3
+    },
+    {
+      "id": 13,
+      "world": 3,
+      "title": "Broadside",
+      "cols": 7,
+      "rows": 5,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 6, "y": 4 },
+      "gems": [{ "x": 6, "y": 0 }],
+      "hazards": [
+        { "type": "wind", "x": 3, "y": 2, "dir": "N" },
+        { "type": "cannon", "x": 0, "y": 3, "dir": "E", "period": 4, "phase": 1 }
+      ],
+      "budget": { "N": 2, "E": 3, "S": 3, "W": 1 },
+      "par": 4
+    },
+    {
+      "id": 14,
+      "world": 3,
+      "title": "X Marks",
+      "cols": 6,
+      "rows": 6,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 5, "y": 5 },
+      "gems": [{ "x": 5, "y": 0 }, { "x": 0, "y": 5 }],
+      "hazards": [
+        { "type": "treasure", "x": 3, "y": 3 }
+      ],
+      "budget": { "N": 2, "E": 3, "S": 3, "W": 3 },
+      "par": 6
+    },
+    {
+      "id": 15,
+      "world": 3,
+      "title": "Captain's Gambit",
+      "cols": 7,
+      "rows": 6,
+      "start": { "x": 0, "y": 0, "dir": "E" },
+      "goal": { "x": 6, "y": 5 },
+      "gems": [{ "x": 6, "y": 0 }, { "x": 0, "y": 5 }, { "x": 3, "y": 5 }],
+      "hazards": [
+        { "type": "wind", "x": 3, "y": 2, "dir": "E" },
+        { "type": "cannon", "x": 0, "y": 3, "dir": "E", "period": 4, "phase": 2 },
+        { "type": "warp", "id": "A", "x": 5, "y": 2, "pairX": 1, "pairY": 5 },
+        { "type": "treasure", "x": 4, "y": 4 }
+      ],
+      "budget": { "N": 3, "E": 4, "S": 4, "W": 4 },
+      "par": 8
+    }
+  ]
+}

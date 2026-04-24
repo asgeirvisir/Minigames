@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>Course Plotter</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="app" data-world="1">
+  <header id="hud">
+    <div class="hud-left">
+      <button id="btn-map" title="Level map">☰</button>
+      <span id="level-title">L1 · Workshop</span>
+    </div>
+    <div class="hud-center">
+      <span id="stars" class="stars">☆☆☆</span>
+      <span id="budget" class="budget">0 / 0</span>
+    </div>
+    <div class="hud-right">
+      <span id="streak" title="3-star streak">🔥 0</span>
+      <button id="btn-mute" title="Mute">🔊</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <canvas id="game" width="720" height="720"></canvas>
+    <div id="overlay" class="overlay hidden"></div>
+  </main>
+
+  <aside id="tray">
+    <div class="tray-tiles" id="tray-tiles"></div>
+    <div class="tray-actions">
+      <button id="btn-undo" title="Undo (Z)">↶ Undo</button>
+      <button id="btn-clear" title="Clear">✕ Clear</button>
+      <button id="btn-run" class="primary" title="Run (Space)">▶ Run</button>
+      <button id="btn-retry" class="hidden" title="Retry (R)">⟲ Retry</button>
+    </div>
+  </aside>
+
+  <div id="map-screen" class="screen hidden">
+    <header class="screen-head">
+      <h2>Course Plotter</h2>
+      <button id="btn-close-map">✕</button>
+    </header>
+    <div id="map-grid" class="map-grid"></div>
+    <footer class="screen-foot">
+      <button id="btn-daily" class="hidden">🌟 Daily Puzzle</button>
+      <span class="meta">Progress saved on this device</span>
+    </footer>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
