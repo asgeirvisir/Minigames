@@ -56,6 +56,7 @@ html, body {
     "hud hud"
     "stage tray";
   height: 100vh;
+  height: 100dvh;
   width: 100vw;
   background: radial-gradient(120% 80% at 50% -20%, color-mix(in oklab, var(--accent) 18%, var(--bg)) 0%, var(--bg) 60%);
   transition: background 400ms ease;
@@ -223,16 +224,51 @@ button.hidden, .hidden { display: none !important; }
 
 @media (max-width: 720px) {
   #app {
-    grid-template-rows: 48px 1fr auto;
+    grid-template-rows: 44px 1fr 128px;
     grid-template-columns: 1fr;
     grid-template-areas:
       "hud"
       "stage"
       "tray";
+    padding-bottom: env(safe-area-inset-bottom, 0);
   }
-  #tray { border-left: none; border-top: 1px solid color-mix(in oklab, var(--accent) 20%, transparent); }
-  .tray-tiles { grid-template-columns: repeat(6, 1fr); }
-  .tray-tile { font-size: 22px; }
+  #hud { padding: 0 8px; font-size: 12px; }
+  #hud button { padding: 4px 8px; }
+  #level-title { font-size: 12px; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .stars { font-size: 14px; letter-spacing: 2px; }
+  .budget { font-size: 11px; }
+  #streak { font-size: 12px; }
+
+  #tray {
+    padding: 6px 8px;
+    gap: 6px;
+    border-left: none;
+    border-top: 1px solid color-mix(in oklab, var(--accent) 20%, transparent);
+  }
+  .tray-tiles {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  .tray-tile {
+    aspect-ratio: auto;
+    height: 56px;
+    font-size: 22px;
+    border-radius: 8px;
+  }
+  .tray-tile .count { font-size: 9px; bottom: 1px; right: 4px; }
+  .tray-actions {
+    gap: 4px;
+  }
+  .tray-actions button {
+    padding: 6px 4px;
+    font-size: 12px;
+    min-width: 0;
+  }
+  #stage { padding: 2px; }
+  #game { filter: none; }
+  .overlay h2 { font-size: 22px; }
+  .big-stars { font-size: 34px; }
+  .map-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Drag ghost */
