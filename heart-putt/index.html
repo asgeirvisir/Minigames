@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>Heart Putt</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <a class="back" href="../" title="Back">←</a>
+    <div class="title">
+      <span id="hole-num">Date 1</span>
+      <span id="hole-name">First Coffee</span>
+    </div>
+    <div class="stats">
+      <span id="strokes">·</span>
+      <span id="par-label">par —</span>
+      <span id="stars" class="stars">☆☆☆</span>
+    </div>
+    <button id="btn-mute" title="Mute">🔊</button>
+  </header>
+
+  <main id="stage">
+    <canvas id="game" width="420" height="640"></canvas>
+    <div id="overlay" class="overlay hidden"></div>
+  </main>
+
+  <footer id="foot">
+    <button id="btn-retry" title="Retry hole (R)">↺ Retry</button>
+    <div id="quip"></div>
+    <button id="btn-next" class="hidden primary">Next ▶</button>
+  </footer>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

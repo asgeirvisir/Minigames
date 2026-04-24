@@ -2,55 +2,162 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-<title>Course Plotter</title>
-<link rel="stylesheet" href="style.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Minigames</title>
+<style>
+:root {
+  --bg: #0c0f15;
+  --panel: #171c25;
+  --ink: #e6edf3;
+  --ink-dim: #8b949e;
+  --accent: #6dc5ff;
+  --gold: #f5cf4e;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: radial-gradient(140% 90% at 50% -10%, #2a1e4e 0%, var(--bg) 55%);
+  color: var(--ink);
+  font: 16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  min-height: 100dvh;
+}
+header {
+  padding: 48px 24px 12px;
+  text-align: center;
+}
+header h1 {
+  margin: 0 0 6px;
+  font-size: 36px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #6dc5ff, #ff7ab8 60%, #f5cf4e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+header p {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 14px;
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+a.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: color-mix(in oklab, var(--panel) 90%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 20%, transparent);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+a.card::before {
+  content: "";
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--card-tint, var(--accent)) 50%, transparent) 0%, transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+a.card:hover, a.card:focus {
+  transform: translateY(-3px);
+  border-color: var(--card-tint, var(--accent));
+  background: color-mix(in oklab, var(--panel) 80%, var(--card-tint, var(--accent)) 8%);
+}
+.card .emoji {
+  font-size: 40px;
+  line-height: 1;
+}
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+.card p {
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 13px;
+}
+.card .tags {
+  margin-top: auto;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--card-tint, var(--accent)) 18%, transparent);
+  color: var(--ink);
+  border: 1px solid color-mix(in oklab, var(--card-tint, var(--accent)) 30%, transparent);
+}
+.card.soon {
+  cursor: not-allowed;
+  opacity: 0.55;
+  pointer-events: none;
+}
+footer {
+  text-align: center;
+  color: var(--ink-dim);
+  font-size: 12px;
+  padding: 0 16px 32px;
+}
+</style>
 </head>
 <body>
-<div id="app" data-world="1">
-  <header id="hud">
-    <div class="hud-left">
-      <button id="btn-map" title="Level map">☰</button>
-      <span id="level-title">L1 · Workshop</span>
-    </div>
-    <div class="hud-center">
-      <span id="stars" class="stars">☆☆☆</span>
-      <span id="budget" class="budget">0 / 0</span>
-    </div>
-    <div class="hud-right">
-      <span id="streak" title="3-star streak">🔥 0</span>
-      <button id="btn-mute" title="Mute">🔊</button>
-    </div>
-  </header>
+<header>
+  <h1>Minigames</h1>
+  <p>A small arcade of tiny games. Each one is a single-session nibble — pick your poison.</p>
+</header>
 
-  <main id="stage">
-    <canvas id="game" width="720" height="720"></canvas>
-    <div id="overlay" class="overlay hidden"></div>
-  </main>
-
-  <aside id="tray">
-    <div class="tray-tiles" id="tray-tiles"></div>
-    <div class="tray-actions">
-      <button id="btn-undo" title="Undo (Z)">↶ Undo</button>
-      <button id="btn-clear" title="Clear">✕ Clear</button>
-      <button id="btn-run" class="primary" title="Run (Space)">▶ Run</button>
-      <button id="btn-retry" class="hidden" title="Retry (R)">⟲ Retry</button>
+<main>
+  <a class="card" href="./course-plotter/" style="--card-tint: #6dc5ff">
+    <span class="emoji">🤖🚀🏴‍☠️</span>
+    <h2>Course Plotter</h2>
+    <p>Drop arrows on a grid, press Run, watch your unit thread the course. 15 levels across three worlds.</p>
+    <div class="tags">
+      <span class="tag">puzzle</span>
+      <span class="tag">15 levels</span>
+      <span class="tag">3-star par</span>
     </div>
-  </aside>
+  </a>
 
-  <div id="map-screen" class="screen hidden">
-    <header class="screen-head">
-      <h2>Course Plotter</h2>
-      <button id="btn-close-map">✕</button>
-    </header>
-    <div id="map-grid" class="map-grid"></div>
-    <footer class="screen-foot">
-      <button id="btn-daily" class="hidden">🌟 Daily Puzzle</button>
-      <span class="meta">Progress saved on this device</span>
-    </footer>
+  <a class="card" href="./heart-putt/" style="--card-tint: #ff7ab8">
+    <span class="emoji">❤️⛳️</span>
+    <h2>Heart Putt</h2>
+    <p>Mini-golf meets speed dating. Pull back, aim, release — send your heart past red flags and awkward silences into theirs.</p>
+    <div class="tags">
+      <span class="tag">golf</span>
+      <span class="tag">physics</span>
+      <span class="tag">4 dates</span>
+    </div>
+  </a>
+
+  <div class="card soon" style="--card-tint: #f5cf4e">
+    <span class="emoji">✨</span>
+    <h2>More soon</h2>
+    <p>New games slot in here as they're built.</p>
+    <div class="tags">
+      <span class="tag">coming</span>
+    </div>
   </div>
-</div>
+</main>
 
-<script type="module" src="src/main.js"></script>
+<footer>
+  Progress saves on this device · <a href="https://github.com/asgeirvisir/Minigames" style="color:inherit">source</a>
+</footer>
 </body>
 </html>
